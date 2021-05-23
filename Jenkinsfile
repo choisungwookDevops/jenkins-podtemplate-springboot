@@ -5,7 +5,9 @@ podTemplate(label: label, containers: [
  
     node(label) {
         stage('Get a Maven project') {
-            git 'https://github.com/choisungwookDevops/jenkins-podtemplate-springboot.git'
+            git url: 'https://github.com/choisungwookDevops/jenkins-podtemplate-springboot.git',
+                branch: 'main'
+
             container('maven') {
                 stage('Build a Maven project') {
                     sh 'mvn clean package'
